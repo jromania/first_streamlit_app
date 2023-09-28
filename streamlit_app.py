@@ -5,7 +5,7 @@ import snowflake.connector
 
 
 
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi',key='1111')
 streamlit.write('The user entered ', fruit_choice)
 
 fruityvice_response = requests.get(f"https://fruityvice.com/api/fruit/{fruit_choice}")
@@ -29,17 +29,18 @@ fruits_selected=streamlit.multiselect("Pick some fruits:", list(my_fruit_list.in
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
-fruits_selected2=streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'],key='11')
-fruits_to_show = my_fruit_list.loc[fruits_selected2]
+
+
+fruit_choice2 = streamlit.text_input('What fruit would you like information about?','Kiwi',key='1111')
+streamlit.write('The user entered ', fruit_choice2)
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_row = my_cur.fetchall()
-streamlit.text("The fruit load list contains")
+streamlit.dataframe(my_data_row)
+ 
 
-fruits_selected2=streamlit.multiselect("Pick some  more fruits:", list(my_fruit_list.index),['Avocado','Strawberries'],key='22')
-fruits_to_show = my_data_row.loc[fruits_selected2]
-streamlit.dataframe(fruits_to_show)
+ 
 
 # import requests
 # fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
