@@ -30,7 +30,7 @@ try:
  
    else:
       
-      streamlit.dataframe(get_fruityvice_data(fruit_choice)
+      streamlit.dataframe(get_fruityvice_data(fruit_choice))
 
 except URLError as e:
   streamlit.error()
