@@ -5,7 +5,7 @@ import snowflake.connector
 
 
 
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi',key='11')
 streamlit.write('The user entered ', fruit_choice)
 
 fruityvice_response = requests.get(f"https://fruityvice.com/api/fruit/{fruit_choice}")
