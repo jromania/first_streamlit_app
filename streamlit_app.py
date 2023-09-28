@@ -31,7 +31,7 @@ streamlit.dataframe(fruits_to_show)
 
 
 
-fruit_choice2 = streamlit.text_input('What fruit would you like information about?','Kiwi',key='1111')
+fruit_choice2 = streamlit.text_input('What fruit would you like information about?','Kiwi',key='22222')
 streamlit.write('The user entered ', fruit_choice2)
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
